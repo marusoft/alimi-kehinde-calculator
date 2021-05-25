@@ -1,38 +1,76 @@
-.App {
-  text-align: center;
+* {
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+body {
+  background: #ffffff;
+  padding-bottom: 30px;
+  padding-top: 30px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.calculator {
+  max-width: 400px;
+  margin: 0 auto;
+  border: 2px solid #eeeeee;
+  border-radius: 5px;
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.calculator input {
+  background: none;
+  border: none;
+  box-shadow: none;
+  outline: none;
+  width: 100%;
+  background: transparent;
+  border-bottom: 2px solid #efefef;
+  padding: 1.25rem;
+  text-align: right;
+  font-size: 2.5rem;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.calculator-buttons {
+  padding: 1.25rem;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.5rem;
 }
-
-.App-link {
-  color: #61dafb;
+.digits,
+.op-add,
+.op-sub,
+.op-mul,
+.op-div,
+.clear,
+.eq {
+  background: linear-gradient(#804ad6, #55b3ae);
+  border: 1px solid #efefef;
+  padding: 1.25rem;
+  color: #eee;
+  border-radius: 5px;
+  font-size: 1.375rem;
+  font-weight: 600;
+  cursor: pointer;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.digit-0 {
+  grid-column: span 3;
+}
+.clear {
+  grid-column: span 3;
+  background: linear-gradient(#804ad6, #55b3ae);
+}
+.eq {
+  background: #34b13e;
+}
+.op-add {
+  background: #5c33a0;
+}
+.op-sub {
+  background: #3d5a9b;
+}
+.op-mul {
+  background: #939442;
+}
+.op-div {
+  background: #1091db;
 }

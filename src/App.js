@@ -1,11 +1,13 @@
-import './App.css';
+import Calculator from './components/Calculator';
+import NumberProvider from './components/NumberProvider';
+
 
 const App = () => {
   return (
-    <div className="App">
-      <h1>hello calculator</h1>
-    </div>
+    <NumberProvider>
+      <Calculator />
+    </NumberProvider>
   );
-}
+};
 
 export default App;
