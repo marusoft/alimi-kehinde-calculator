@@ -12,6 +12,20 @@ const Output = () => {
       <br></br>
       <span>
         {!storedNumber ? '' : `${storedNumber} ${operandType} ${number}`}
+
+
+       {/** {(() => {
+          if (!Number(number) === 0) {
+            if (!storedNumber) {
+              return ''
+            }
+            return `${storedNumber} ${operandType} ${number}`
+          }
+
+          return handleClearValue();
+        })()}
+ */}
+
       </span>
     </div>
   );

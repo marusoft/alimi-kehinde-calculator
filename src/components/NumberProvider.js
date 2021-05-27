@@ -8,10 +8,9 @@ const NumberProvider = props => {
   const [operandType, setOperandType] = useState('');
 
 
-
   const handleSetDisplayValue = num => {
     if ((!number.includes('.') || num !== '.') && number.length < 8) {
-      setNumber(`${(number + num).replace(/^0+/, '')}`);
+      setNumber(`${(number + num).replace(/^0+/, 0)}`);
     }
   };
 
@@ -40,16 +39,20 @@ const NumberProvider = props => {
     if (number && storedNumber) {
       switch (operandType) {
         case '+':
-          setStoredNumber(`${Math.floor(`${(parseFloat(storedNumber) + parseFloat(number))}`) }`);
+          setStoredNumber(`${Math.floor(`${(parseFloat(storedNumber) + parseFloat(number))}`)}`);
           break;
         case '-':
-          setStoredNumber(`${Math.floor(`${(parseFloat(storedNumber) - parseFloat(number)) }`) }`);
-          break;
-        case '/':
-          setStoredNumber(`${Math.floor(`${(parseFloat(storedNumber) / parseFloat(number)) }`) }`);
+          setStoredNumber(`${Math.floor(`${(parseFloat(storedNumber) - parseFloat(number))}`)}`);
           break;
         case '*':
-          setStoredNumber(`${Math.floor(`${parseFloat(storedNumber) * parseFloat(number) }`) }`);
+          setStoredNumber(`${Math.floor(`${parseFloat(storedNumber) * parseFloat(number)}`)}`);
+          break;
+        case '/':
+          if (parseFloat(number) === 0) {
+            handleClearValue();
+            return;
+         }
+          setStoredNumber(`${Math.floor(`${(parseFloat(storedNumber) / parseFloat(number))}`)}`);
           break;
         default:
           break;
