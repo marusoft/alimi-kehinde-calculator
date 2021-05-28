@@ -3,9 +3,9 @@ import { NumberContext } from './NumberProvider';
 import '../App.css'
 
 const ClearButton = () => {
-  const { handleClearValue } = useContext(NumberContext);
+  const { handleClearDisplay } = useContext(NumberContext);
   return (
-    <button type="button" className="clear" onClick={() => handleClearValue()}>
+    <button type="button" className="clear" onClick={() => handleClearDisplay()}>
       C
     </button>
   );

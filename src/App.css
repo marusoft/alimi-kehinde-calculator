@@ -74,3 +74,12 @@ body {
 .op-div {
   background: #1091db;
 }
+.output span:nth-child(1) {
+  text-align: right;
+}
+
+.output span:last-child {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

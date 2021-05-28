@@ -3,29 +3,15 @@ import { NumberContext } from "./NumberProvider";
 import '../App.css'
 
 const Output = () => {
-  const { number, storedNumber, operandType } = useContext(NumberContext);
+  const { number, previousNumber, operandType } = useContext(NumberContext);
   return (
     <div className="output">
       <span>
-        {!number.length && !storedNumber ? '' : number || storedNumber}
+        {!number.length && !previousNumber ? '' : number || previousNumber}
       </span>
       <br></br>
       <span>
-        {!storedNumber ? '' : `${storedNumber} ${operandType} ${number}`}
-
-
-       {/** {(() => {
-          if (!Number(number) === 0) {
-            if (!storedNumber) {
-              return ''
-            }
-            return `${storedNumber} ${operandType} ${number}`
-          }
-
-          return handleClearValue();
-        })()}
- */}
-
+        {!previousNumber ? '' : `${previousNumber} ${operandType} ${number}`}
       </span>
     </div>
   );

@@ -4,7 +4,7 @@ export const NumberContext = React.createContext();
 
 const NumberProvider = props => {
   const [number, setNumber] = useState('');
-  const [storedNumber, setStoredNumber] = useState('');
+  const [previousNumber, setPreviousNumber] = useState('');
   const [operandType, setOperandType] = useState('');
 
 
@@ -15,13 +15,13 @@ const NumberProvider = props => {
   };
 
   const handleSetStoredValue = () => {
-    setStoredNumber(number);
+    setPreviousNumber(number);
     setNumber('');
   };
 
-  const handleClearValue = () => {
+  const handleClearDisplay = () => {
     setNumber('');
-    setStoredNumber('');
+    setPreviousNumber('');
     setOperandType('');
   };
 
@@ -30,29 +30,29 @@ const NumberProvider = props => {
       setOperandType(type);
       handleSetStoredValue();
     }
-    if (storedNumber) {
+    if (previousNumber) {
       setOperandType(type);
     }
   };
 
   const compute = () => {
-    if (number && storedNumber) {
+    if (number && previousNumber) {
       switch (operandType) {
         case '+':
-          setStoredNumber(`${Math.floor(`${(parseFloat(storedNumber) + parseFloat(number))}`)}`);
+          setPreviousNumber(`${Math.floor(`${(parseFloat(previousNumber) + parseFloat(number))}`)}`);
           break;
         case '-':
-          setStoredNumber(`${Math.floor(`${(parseFloat(storedNumber) - parseFloat(number))}`)}`);
+          setPreviousNumber(`${Math.floor(`${(parseFloat(previousNumber) - parseFloat(number))}`)}`);
           break;
         case '*':
-          setStoredNumber(`${Math.floor(`${parseFloat(storedNumber) * parseFloat(number)}`)}`);
+          setPreviousNumber(`${Math.floor(`${parseFloat(previousNumber) * parseFloat(number)}`)}`);
           break;
         case '/':
           if (parseFloat(number) === 0) {
-            handleClearValue();
+            handleClearDisplay();
             return;
          }
-          setStoredNumber(`${Math.floor(`${(parseFloat(storedNumber) / parseFloat(number))}`)}`);
+          setPreviousNumber(`${Math.floor(`${(parseFloat(previousNumber) / parseFloat(number))}`)}`);
           break;
         default:
           break;
@@ -66,12 +66,12 @@ const NumberProvider = props => {
       value={{
         compute,
         operandType,
-        handleClearValue,
+        handleClearDisplay,
         handleSetCalcFunction,
         handleSetDisplayValue,
         handleSetStoredValue,
         number,
-        storedNumber,
+        previousNumber,
         setNumber,
       }}
     >
