@@ -6,9 +6,9 @@ body {
   background: #ffffff;
   padding-bottom: 30px;
   padding-top: 30px;
-  font: 13px/20px "Open Sans", Tahoma, Verdana, sans-serif;
+  font: 13px/20px "Poppins", sans-serif;
   color: #eeffee;
-  background-image: url(./img/c.jpg);
+  background-image: url('https://res.cloudinary.com/marusofteamwork/image/upload/v1622187459/calc.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   height: 100vh;
