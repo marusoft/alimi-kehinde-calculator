@@ -15,6 +15,8 @@ import "../App.css";
 const Calculator = () => {
 
   return (
+    <div className="calc-head">
+    <h3>Calculator</h3>
     <div className="calculator">
       <Output />
       <div className="calculator-buttons">
@@ -35,6 +37,7 @@ const Calculator = () => {
         <ClearButton value='c' />
         <ComputeButton value='=' />
       </div>
+    </div>
     </div>
   );
 };
